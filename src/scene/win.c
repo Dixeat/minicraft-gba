@@ -16,6 +16,7 @@
 #include "scene.h"
 
 #include "screen.h"
+#include "i18n.h"
 
 static u8 win_time;
 
@@ -41,15 +42,15 @@ static void win_draw(void) {
     const u8 win_h = 7;
 
     screen_draw_frame("", win_x, win_y, win_w, win_h);
-    screen_write("YOU WON! YAY!", 6, win_x + 1, win_y + 1);
+    screen_write(text(TEXT_WIN), 6, win_x + 1, win_y + 1);
 
-    screen_write("TIME:", 6, win_x + 1, win_y + 2);
+    screen_write(text(TEXT_TIME), 6, win_x + 1, win_y + 2);
     screen_write_time(gametime, 10, win_x + 6, win_y + 2);
 
-    screen_write("SCORE:", 6, win_x + 1, win_y + 3);
+    screen_write(text(TEXT_SCORE), 6, win_x + 1, win_y + 3);
     SCREEN_WRITE_NUMBER(score, 10, 10, false, 10, win_x + 7, win_y + 3);
 
-    screen_write("PRESS A TO WIN", 8, win_x + 1, win_y + 5);
+    screen_write(text(TEXT_PRESS_A_TO_WIN), 8, win_x + 1, win_y + 5);
 }
 
 const struct Scene scene_win = {
