@@ -133,7 +133,6 @@ static inline void draw_status_bar(void) {
     }
 }
 
-IWRAM_SECTION
 static void game_draw(void) {
     clear_screen();
     level_draw(level);
