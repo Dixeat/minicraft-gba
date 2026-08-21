@@ -107,9 +107,10 @@ static void start_tick(void) {
     }
 }
 
-#define START_WRITE(text_id, selection, x, y) do {\
+#define START_WRITE(text_id, selection, y) do {\
     const char *value = text(text_id);\
-    screen_write(value, selected == (selection) ? 0 : 1, (x), (y));\
+    const u32 x = (30 - text_length(value)) / 2;\
+    screen_write(value, selected == (selection) ? 0 : 1, x, (y));\
     if(selected == (selection)) {\
         screen_write(">", 0, (x) - 2, (y));\
         screen_write("<", 0, (x) + text_length(value) + 1, (y));\
@@ -132,19 +133,20 @@ static void start_draw(void) {
     }
 
     if(can_load) {
-        START_WRITE(TEXT_LOAD_GAME, LOAD_GAME, 10, 9);
+        START_WRITE(TEXT_LOAD_GAME, LOAD_GAME, 8);
         if(!checksum_verified) {
             screen_write("(!)", 2, 22, 9);
 
             screen_write(text(TEXT_INVALID_CHECKSUM), 2, 1, 17);
         }
     }
-    START_WRITE(TEXT_NEW_GAME, NEW_GAME, 10, 10);
+    const u8 first_option_y = can_load ? 10 : 9;
 
-    START_WRITE(TEXT_OPTIONS, OPTIONS, 11, 12);
+    START_WRITE(TEXT_NEW_GAME, NEW_GAME, first_option_y);
+    START_WRITE(TEXT_OPTIONS, OPTIONS, first_option_y + 2);
 
-    START_WRITE(TEXT_HOW_TO_PLAY, HOW_TO_PLAY, 8, 14);
-    START_WRITE(TEXT_ABOUT, ABOUT, 11, 16);
+    START_WRITE(TEXT_HOW_TO_PLAY, HOW_TO_PLAY, first_option_y + 4);
+    START_WRITE(TEXT_ABOUT, ABOUT, first_option_y + 6);
 
     screen_write("V2.0", 1, 26, 19);
 }
