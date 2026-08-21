@@ -143,8 +143,8 @@ static void start_draw(void) {
 
     START_WRITE(TEXT_OPTIONS, OPTIONS, 11, 12);
 
-    START_WRITE(TEXT_HOW_TO_PLAY, HOW_TO_PLAY, 9, 14);
-    START_WRITE(TEXT_ABOUT, ABOUT, 12, 15);
+    START_WRITE(TEXT_HOW_TO_PLAY, HOW_TO_PLAY, 8, 14);
+    START_WRITE(TEXT_ABOUT, ABOUT, 11, 16);
 
     screen_write("V2.0", 1, 26, 19);
 }
