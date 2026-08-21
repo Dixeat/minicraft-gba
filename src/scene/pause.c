@@ -120,7 +120,7 @@ static void pause_draw(void) {
         WRITE_ANSWER(TEXT_NO, 1, pause_x + 12, pause_y + 8);
     } else {
         WRITE_MENU_OPTION(TEXT_SAVE_GAME, SAVE_OPTION, pause_x + 2, pause_y + 6);
-        WRITE_MENU_OPTION(TEXT_QUIT, QUIT_OPTION, pause_x + 4, pause_y + 8);
+        WRITE_MENU_OPTION(TEXT_QUIT, QUIT_OPTION, pause_x + 2, pause_y + 8);
     }
 }
 
