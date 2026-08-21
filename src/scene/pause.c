@@ -97,29 +97,30 @@ static void pause_tick(void) {
 THUMB
 static void pause_draw(void) {
     const u8 pause_x = 6;
-    const u8 pause_y = 5;
+    const u8 pause_y = 4;
     const u8 pause_w = 18;
-    const u8 pause_h = 9;
+    const u8 pause_h = 11;
     const u8 stats_value_x = pause_x + 7;
 
-    screen_draw_frame(text(TEXT_PAUSE), pause_x, pause_y, pause_w, pause_h);
+    screen_draw_frame("", pause_x, pause_y, pause_w, pause_h);
+    screen_write(text(TEXT_PAUSE), 10, pause_x + 1, pause_y + 1);
 
-    screen_write(text(TEXT_TIME), 6, pause_x + 1, pause_y + 1);
-    screen_write_time(gametime, 10, stats_value_x, pause_y + 1);
+    screen_write(text(TEXT_TIME), 6, pause_x + 1, pause_y + 3);
+    screen_write_time(gametime, 10, stats_value_x, pause_y + 3);
 
-    screen_write(text(TEXT_SCORE), 6, pause_x + 1, pause_y + 2);
-    SCREEN_WRITE_NUMBER(score, 10, 10, false, 10, stats_value_x, pause_y + 2);
+    screen_write(text(TEXT_SCORE), 6, pause_x + 1, pause_y + 4);
+    SCREEN_WRITE_NUMBER(score, 10, 10, false, 10, stats_value_x, pause_y + 4);
 
     if(should_save) {
-        screen_write(text(TEXT_SAVING), 6, pause_x + 5, pause_y + 5);
+        screen_write(text(TEXT_SAVING), 6, pause_x + 5, pause_y + 6);
     } else if(ask_overwrite) {
-        screen_write(text(TEXT_OVERWRITE_FILE), 6, pause_x + 1, pause_y + 4);
+        screen_write(text(TEXT_OVERWRITE_FILE), 6, pause_x + 1, pause_y + 6);
 
-        WRITE_ANSWER(TEXT_YES, 0, pause_x + 4,  pause_y + 6);
-        WRITE_ANSWER(TEXT_NO, 1, pause_x + 12, pause_y + 6);
+        WRITE_ANSWER(TEXT_YES, 0, pause_x + 4,  pause_y + 8);
+        WRITE_ANSWER(TEXT_NO, 1, pause_x + 12, pause_y + 8);
     } else {
-        WRITE_MENU_OPTION(TEXT_SAVE_GAME, SAVE_OPTION, pause_x + 2, pause_y + 4);
-        WRITE_MENU_OPTION(TEXT_QUIT, QUIT_OPTION, pause_x + 4, pause_y + 6);
+        WRITE_MENU_OPTION(TEXT_SAVE_GAME, SAVE_OPTION, pause_x + 2, pause_y + 6);
+        WRITE_MENU_OPTION(TEXT_QUIT, QUIT_OPTION, pause_x + 4, pause_y + 8);
     }
 }
 
