@@ -148,7 +148,7 @@ static void start_draw(void) {
     START_WRITE(TEXT_HOW_TO_PLAY, HOW_TO_PLAY, first_option_y + 4);
     START_WRITE(TEXT_ABOUT, ABOUT, first_option_y + 6);
 
-    screen_write("V2.0", 1, 26, 19);
+    screen_write("V2.1", 1, 26, 19);
 }
 
 const struct Scene scene_start = {

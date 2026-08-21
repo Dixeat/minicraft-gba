@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1] - 2026-08-21
+### Added
+- English and French language support, selectable in the options menu.
+
+### Fixed
+- Reserve enough IWRAM stack space when generating a new world.
+- Improve French menu layout and statistics alignment.
+
 ## [2.0] - 2026-02-19
 ### Changed
 - Rework the save file layout and switch to 64 KB Flash ROM.

@@ -74,7 +74,9 @@
 
       1 B - keep inventory option
 
-     31 B - padding
+      1 B - language option
+
+     30 B - padding
 */
 
 #define STORAGE_SIZE (64 * 1024)
